@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Android_test_dagger_like_hilt">
         <activity
-            android:name=".MainActivity"
+            android:name=".ActivityOne"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

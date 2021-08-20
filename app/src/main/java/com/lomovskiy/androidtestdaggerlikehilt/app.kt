@@ -1,15 +1,18 @@
 package com.lomovskiy.androidtestdaggerlikehilt
 
 import android.app.Application
+import android.util.Log
 import dagger.Binds
 import dagger.Component
 import dagger.Module
 import javax.inject.Inject
 import javax.inject.Singleton
 
+const val TAG_LOG = "TAG_LOG"
+
 open class HiltApp : Application() {
 
-    private val appComponent: AppComponent = DaggerAppComponent.create()
+    val appComponent: AppComponent = DaggerAppComponent.create()
 
     override fun onCreate() {
         super.onCreate()
@@ -25,7 +28,7 @@ class App : HiltApp() {
 
     override fun onCreate() {
         super.onCreate()
-        print("")
+        Log.d(TAG_LOG, interactor.toString())
     }
 
 }
@@ -35,6 +38,8 @@ class App : HiltApp() {
 interface AppComponent {
 
     fun inject(app: App)
+
+    fun getActivityComponent(): ActivityComponent
 
 }
 
